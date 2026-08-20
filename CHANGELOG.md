@@ -1,0 +1,20 @@
+# Changelog
+
+All notable changes to this project are documented in this file.
+
+## [Unreleased]
+
+## [0.1.0] - 2026-08-20
+
+### Added
+
+- Local stdio MCP server with ten tools for listing, reading, searching,
+  creating, updating, moving, and deleting Markdown notes.
+- Vault-bound path resolution, including protection against escaping symbolic
+  links.
+- Optional read-only mode that blocks all write tools.
+- Temporary-vault tests, Python 3.11 through 3.14 CI, and secret scanning.
+- Security policy, contribution guide, and portable client configuration.
+
+[Unreleased]: https://github.com/trsdn/obsidian-mcp/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/trsdn/obsidian-mcp/releases/tag/v0.1.0

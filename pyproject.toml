@@ -34,7 +34,7 @@ Repository = "https://github.com/trsdn/obsidian-mcp"
 [dependency-groups]
 dev = [
     "pytest>=9.0.3,<10.0",
-    "pytest-cov>=5.0,<7.0",
+    "pytest-cov>=7.1.0,<8.0",
     "ruff>=0.9,<1.0",
 ]
 

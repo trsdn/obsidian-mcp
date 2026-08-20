@@ -4,6 +4,21 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Dependabot configuration for grouped weekly `uv` and GitHub Actions updates.
+
+### Security
+
+- Upgraded locked dependencies to resolve all open Dependabot alerts, including
+  `cryptography` 50.0.0, `mcp` 1.29.0, `starlette` 1.6.0, `joserfc` 1.7.4,
+  `pyjwt` 2.13.0, `python-multipart` 0.0.32, `pydantic-settings` 2.15.0, and
+  `idna` 3.19.
+
+### Changed
+
+- Raised the development `pytest` requirement to `>=9.0.3,<10.0`.
+
 ## [0.1.1] - 2026-08-20
 
 ### Added

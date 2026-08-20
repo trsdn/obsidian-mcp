@@ -1,0 +1,43 @@
+name: Feature request
+description: Propose a focused improvement to Obsidian MCP
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the workflow and outcome rather than sharing real vault content.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What workflow is difficult or impossible today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior and any MCP contract changes.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: security
+    attributes:
+      label: Security and privacy impact
+      description: Explain whether this changes vault access, write behavior, or data exposure.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: This request contains no private note content or personal paths.
+          required: true
+        - label: I searched existing issues for a similar request.
+          required: true

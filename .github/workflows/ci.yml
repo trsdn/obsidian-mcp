@@ -25,7 +25,9 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked --all-groups
       - name: Lint
-        run: uv run ruff check .
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
       - name: Test
         run: uv run pytest --cov=obsidian_mcp --cov-fail-under=85
       - name: Build distributions

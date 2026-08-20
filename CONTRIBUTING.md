@@ -14,6 +14,7 @@ Requirements:
 ```bash
 uv sync --locked --all-groups
 uv run ruff check .
+uv run ruff format --check .
 uv run pytest --cov=obsidian_mcp --cov-fail-under=85
 uv build
 ```

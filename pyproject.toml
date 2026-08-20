@@ -1,14 +1,35 @@
 [project]
 name = "obsidian-mcp"
-version = "0.1.0"
-description = "Filesystem-based MCP server for Obsidian vaults (Claude Desktop / any MCP client)"
+version = "0.1.1"
+description = "Local filesystem MCP server for securely working with Obsidian vaults"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
-authors = [{ name = "Torsten" }]
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Torsten Mahr" }]
+keywords = ["fastmcp", "markdown", "mcp", "model-context-protocol", "obsidian"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
 dependencies = [
     "fastmcp>=2.0,<4.0",
 ]
+
+[project.urls]
+Changelog = "https://github.com/trsdn/obsidian-mcp/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/trsdn/obsidian-mcp#readme"
+Issues = "https://github.com/trsdn/obsidian-mcp/issues"
+Repository = "https://github.com/trsdn/obsidian-mcp"
 
 [dependency-groups]
 dev = [

@@ -55,6 +55,7 @@ def get_config() -> Config:
 
 # --- path safety ----------------------------------------------------------
 
+
 def _resolve(rel: str) -> Path:
     """Resolve a vault-relative path and ensure it stays inside the vault."""
     config = get_config()
@@ -84,6 +85,7 @@ def _rel(path: Path) -> str:
 
 
 # --- tools ----------------------------------------------------------------
+
 
 @mcp.tool
 def vault_info() -> dict:
@@ -120,8 +122,10 @@ def list_folders(
     base = _resolve(folder)
     if not base.is_dir():
         raise ValueError(f"Not a folder: {folder}")
-    iterator = (p for p in base.rglob("*") if p.is_dir()) if recursive else (
-        p for p in base.iterdir() if p.is_dir()
+    iterator = (
+        (p for p in base.rglob("*") if p.is_dir())
+        if recursive
+        else (p for p in base.iterdir() if p.is_dir())
     )
     return sorted(_rel(p) for p in iterator if not p.name.startswith("."))
 
@@ -239,9 +243,7 @@ def search_content(
             cmd.extend(["--fixed-strings", query])
         cmd.append(str(base))
         try:
-            proc = subprocess.run(
-                cmd, capture_output=True, text=True, check=False, timeout=20
-            )
+            proc = subprocess.run(cmd, capture_output=True, text=True, check=False, timeout=20)
         except subprocess.TimeoutExpired:
             return [{"error": "ripgrep timed out"}]
         results: list[dict] = []
@@ -254,9 +256,7 @@ def search_content(
                 rel = _rel(Path(file_part))
             except ValueError:
                 continue
-            results.append(
-                {"path": rel, "line": int(lineno), "snippet": snippet.strip()}
-            )
+            results.append({"path": rel, "line": int(lineno), "snippet": snippet.strip()})
             if len(results) >= max_results:
                 break
         return results
@@ -269,9 +269,7 @@ def search_content(
         try:
             for i, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
                 if matcher.search(line):
-                    results.append(
-                        {"path": _rel(path), "line": i, "snippet": line.strip()}
-                    )
+                    results.append({"path": _rel(path), "line": i, "snippet": line.strip()})
                     if len(results) >= max_results:
                         return results
         except (OSError, UnicodeDecodeError):

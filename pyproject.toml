@@ -1,6 +1,6 @@
 [project]
 name = "trsdn-obsidian-mcp"
-version = "0.1.1"
+version = "0.1.2"
 description = "Local filesystem MCP server for securely working with Obsidian vaults"
 readme = "README.md"
 requires-python = ">=3.11"

@@ -1,5 +1,5 @@
 [project]
-name = "obsidian-mcp"
+name = "trsdn-obsidian-mcp"
 version = "0.1.1"
 description = "Local filesystem MCP server for securely working with Obsidian vaults"
 readme = "README.md"
@@ -29,6 +29,7 @@ dependencies = [
 Changelog = "https://github.com/trsdn/obsidian-mcp/blob/main/CHANGELOG.md"
 Documentation = "https://github.com/trsdn/obsidian-mcp#readme"
 Issues = "https://github.com/trsdn/obsidian-mcp/issues"
+Homepage = "https://github.com/trsdn/obsidian-mcp"
 Repository = "https://github.com/trsdn/obsidian-mcp"
 
 [dependency-groups]
@@ -47,6 +48,15 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/obsidian_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/obsidian_mcp",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "pyproject.toml",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

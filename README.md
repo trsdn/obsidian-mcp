@@ -4,6 +4,7 @@
 [![Secret scan](https://github.com/trsdn/obsidian-mcp/actions/workflows/secret-scan.yml/badge.svg)](https://github.com/trsdn/obsidian-mcp/actions/workflows/secret-scan.yml)
 [![Release](https://img.shields.io/github/v/release/trsdn/obsidian-mcp)](https://github.com/trsdn/obsidian-mcp/releases/latest)
 [![Python](https://img.shields.io/badge/Python-3.11--3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![PyPI](https://img.shields.io/pypi/v/trsdn-obsidian-mcp)](https://pypi.org/project/trsdn-obsidian-mcp/)
 [![License](https://img.shields.io/github/license/trsdn/obsidian-mcp)](LICENSE)
 
 A focused Model Context Protocol server that gives local AI clients controlled
@@ -33,14 +34,20 @@ create, update, move, or delete notes from any stdio-capable MCP client.
 Requirements: Python 3.11 or newer and
 [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
-```bash
-git clone https://github.com/trsdn/obsidian-mcp.git
-cd obsidian-mcp
-uv sync --locked --no-dev
+The package is published to PyPI as **`trsdn-obsidian-mcp`** (the PyPI name
+`obsidian-mcp` is taken by an unrelated project). The import name and the
+console command stay `obsidian_mcp` / `obsidian-mcp`.
 
+```bash
 export OBSIDIAN_VAULT_PATH="/path/to/your/Obsidian vault"
 export OBSIDIAN_READ_ONLY=1
-uv run obsidian-mcp
+
+# run without installing
+uvx --from trsdn-obsidian-mcp obsidian-mcp
+
+# or install it
+pip install trsdn-obsidian-mcp
+obsidian-mcp
 ```
 
 The server communicates over stdio and is normally started by an MCP client,
@@ -48,8 +55,7 @@ not from an interactive terminal.
 
 ## Client Setup
 
-Replace `/path/to/obsidian-mcp` and `/path/to/your/Obsidian vault` in the
-examples below.
+Replace `/path/to/your/Obsidian vault` in the examples below.
 
 ### VS Code
 
@@ -60,11 +66,10 @@ Add the server to `.vscode/mcp.json`:
   "servers": {
     "obsidian": {
       "type": "stdio",
-      "command": "uv",
+      "command": "uvx",
       "args": [
-        "--directory",
-        "/path/to/obsidian-mcp",
-        "run",
+        "--from",
+        "trsdn-obsidian-mcp",
         "obsidian-mcp"
       ],
       "env": {
@@ -84,11 +89,10 @@ Add the server under `mcpServers` in Claude Desktop's configuration:
 {
   "mcpServers": {
     "obsidian": {
-      "command": "uv",
+      "command": "uvx",
       "args": [
-        "--directory",
-        "/path/to/obsidian-mcp",
-        "run",
+        "--from",
+        "trsdn-obsidian-mcp",
         "obsidian-mcp"
       ],
       "env": {
@@ -98,6 +102,15 @@ Add the server under `mcpServers` in Claude Desktop's configuration:
     }
   }
 }
+```
+
+### From a local checkout
+
+```bash
+git clone https://github.com/trsdn/obsidian-mcp.git
+cd obsidian-mcp
+uv sync --locked --no-dev
+uv run obsidian-mcp
 ```
 
 Restart the client after changing its MCP configuration.

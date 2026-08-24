@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-08-24
+
 ### Added
 
 - Dependabot configuration for grouped weekly `uv` and GitHub Actions updates.
@@ -17,6 +19,14 @@ All notable changes to this project are documented in this file.
 
 ### Changed
 
+- Renamed the published distribution to `trsdn-obsidian-mcp`, because the PyPI
+  name `obsidian-mcp` is held by an unrelated project. The import name
+  `obsidian_mcp` and the `obsidian-mcp` console command are unchanged.
+- Publishing now runs on PyPI Trusted Publishing (GitHub Actions OIDC) through
+  a `build` -> `publish` -> `github-release` job chain, so the GitHub release is
+  only created after the PyPI upload succeeds. No API tokens are involved.
+- Restricted the source distribution to the package source, `README.md`,
+  `CHANGELOG.md`, `LICENSE`, and `pyproject.toml`.
 - Raised the development `pytest` requirement to `>=9.0.3,<10.0`.
 
 ## [0.1.1] - 2026-08-20
@@ -46,6 +56,7 @@ All notable changes to this project are documented in this file.
 - Temporary-vault tests, Python 3.11 through 3.14 CI, and secret scanning.
 - Security policy, contribution guide, and portable client configuration.
 
-[Unreleased]: https://github.com/trsdn/obsidian-mcp/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/trsdn/obsidian-mcp/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/trsdn/obsidian-mcp/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/trsdn/obsidian-mcp/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/trsdn/obsidian-mcp/releases/tag/v0.1.0

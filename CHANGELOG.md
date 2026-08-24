@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+
+- A manual `workflow_dispatch` run of the release workflow no longer attempts to
+  publish. PyPI rejects re-uploading an existing version, so dispatching without
+  a new tag always failed at the upload step. `publish` and `github-release` are
+  now restricted to tag pushes, which turns a manual run into a safe dry run of
+  the build and quality gates.
+
 ## [0.1.2] - 2026-08-24
 
 ### Added
